@@ -1,0 +1,38 @@
+﻿@model IEnumerable<BravoNews.Models.Article>
+
+@{
+    ViewData["Title"] = "ArchivedNews";
+}
+
+
+
+<div class="container" style="float:left ;width:100%;margin-left:20px">
+   
+    <h1 style="text-align:center">Archived News</h1>
+
+<div class="=container">
+
+<h1>Archived News</h1>
+
+<div class="container">
+   
+    <div class="col-9">
+
+    <div class="row g-3">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-4" style="padding-top:15px">
+                <div class="card" >
+                    <img src="@item.ImageLink" class="card-img-top" alt="......" />
+                       <div class="card-body">
+                        <p>@item.DateStamp.ToShortDateString()</p>
+                        <h5 class="card-title">@item.Headline</h5>
+                        <a asp-controller="Home" asp-action="Articles" asp-route-id="@item.Id" >@item.ContentSummary</a>
+                     </div>
+                </div>
+            </div>
+        }
+        </div>
+        </div>
+        </div>
+        </div>

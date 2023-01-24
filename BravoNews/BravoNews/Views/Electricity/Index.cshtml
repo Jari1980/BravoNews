@@ -1,0 +1,33 @@
+﻿@model BravoNews.Models.Electricity
+
+@{
+    ViewBag.Title = "Electricity Spot Prices";
+}
+
+<h2>Electricity Spot Prices</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Date and Time</th>
+            <th>Area</th>
+            <th>Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var todaySpotPrice in Model.TodaysSpotPrices)
+        {
+            foreach (var spotData in todaySpotPrice.SpotData)
+            {
+                <tr>
+                    <td>@spotData.DateAndTime.ToString("yyyy-MM-dd HH:mm:ss")</td>
+                    <td>@spotData.AreaName</td>
+                    <td>@spotData.Price</td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+
+
+

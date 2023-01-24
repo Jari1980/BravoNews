@@ -1,0 +1,53 @@
+﻿
+
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <script>
+window.onload = function() {
+
+    var chart = new CanvasJS.Chart("chartContainer", {
+        theme: "light1",
+        exportEnabled: true,
+        animationEnabled: true,
+        title: {
+            text: "Article distribution"
+        },
+        subtitles: [{
+            text: "Last four months"
+        }],
+        data: [{
+            type: "pie",
+            startAngle: 180,
+            toolTipContent: "<b>{label}</b>: {y} Articles",
+            showInLegend: "true",
+            legendText: "{label}",
+            indexLabel: "{label} - {y} Articles",
+            dataPoints: @Html.Raw(ViewBag.DataPoints)
+        }]
+    });
+    chart.render();
+}
+
+        </script>
+    </head>
+    
+    <body>
+        <div class="container">
+        <div class="row-cols-4">
+        <div class="container" style="width:70%; padding-left:100px; float:left">
+        <div id="chartContainer" style="max-height: 500px; max-width: 100%;"></div>
+        <br />
+    <div>
+        <a href="AdminPages" class="btn btn-link btn-lg" role="button">Back</a>
+    </div>
+   </div>
+   </div>
+   </div>
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js">
+
+    </script>
+    
+
+    </body>
+</html>

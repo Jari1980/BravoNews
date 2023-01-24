@@ -1,0 +1,36 @@
+﻿@model IEnumerable<BravoNews.Models.ViewModels.UserVM>
+
+@{
+    ViewData["Title"] = "Admin";
+}
+@{
+   
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+<div class="container" style="width:70%; float:left">
+<div class="container">
+<h1 style="text-align:center">Admin stuff</h1>
+</div>
+<br />
+<br />
+
+<div>
+<div style="text-align:center">
+<a href="RoleAssignment" class="btn btn-primary" style="width:200px" role="button">Assign Roles</a>
+</div>
+<br />
+<div style="text-align:center">
+<a href="AddNewRole" class="btn btn-primary" style="width:200px" role="button">Add new role</a>
+</div>
+<br />
+<div style="text-align:center">
+<a href="SubscriptionStatistics" class="btn btn-primary" style="width:200px" role="button">Subscription statistics</a>
+</div>
+<br />
+<div style="text-align:center">
+<a href="ArticleStatistics" class="btn btn-primary" style="width:200px" role="button">Article statistics</a>
+</div>
+</div>
+</div>

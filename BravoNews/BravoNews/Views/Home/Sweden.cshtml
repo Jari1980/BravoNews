@@ -1,0 +1,14 @@
+﻿@Model BravoNews.Models.Article
+
+
+
+@foreach (var item in Model)
+{
+    <br />
+    <a href="/articles?Id=@item.Id" style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif"><h2>@item.Headline</h2></a>
+    <br />
+    <a href="/articles?Id=@item.Id" style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif"><p>@item.ContentSummary</p></a>
+    <br />
+    <p>@item.DateStamp.ToShortDateString()</p>
+    <br />
+}

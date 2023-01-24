@@ -1,0 +1,105 @@
+﻿@model IEnumerable<BravoNews.Models.StockData>
+
+@{
+    var stockData = Model.ToList();
+}
+
+<div id="desktop-stock-carousel" class="carousel slide w-100 d-none d-lg-block" data-bs-ride="carousel">
+    <div id="carousel-sd" class="carousel-inner">
+        @for (var i = 0; i < stockData.Count; i += 5)
+        {
+            // i = 0
+            // i = 5
+            // Carousel item + row?
+            <div class="carousel-item @(i == 0 ? "active" : "")">
+                <div class="row" >
+                    @for (int j = i; j < Math.Clamp(i + 5, i, stockData.Count); j++)
+                    {
+                        // Items in the carousel item/slide + col?
+                        var data = stockData[j];
+                        <div class="col" style="font-weight:bold;border-left:ridge">
+                            <p style="color:cornflowerblue;margin:0px">
+                                @data.Name
+                            </p>
+                            <p style="color:black;margin:0px">
+                                @data.Symbol
+                            </p>
+                            @if (data.PercentChange >= 0)
+                            {
+                                <p class="text-success" style="margin:0px">
+                                    @data.Close
+                                    <span>(@data.PercentChange %)</span>
+                                </p>
+                            }
+                            else
+                            {
+                                <p class="text-danger" style="margin:0px">
+                                    @data.Close
+                                    <span>(@data.PercentChange %)</span>
+                                </p>
+                            }
+                        </div>
+
+                    }
+                </div>
+            </div>
+
+        }
+    </div>
+    <button class="carousel-control-prev justify-content-center" style="margin-left:0px" type="button" data-bs-target="#desktop-stock-carousel" data-bs-slide="prev">
+        <span class="carousel-icon" aria-hidden="true"><i class="bi bi-chevron-left"></i></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next justify-content-center" type="button" data-bs-target="#desktop-stock-carousel" data-bs-slide="next">
+        <span class="carousel-icon" aria-hidden="true"><i class="bi bi-chevron-right"></i></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+
+<div id="mobile-stock-carousel" class="carousel slide w-100 d-block d-lg-none" data-bs-ride="carousel">
+    <div class="carousel-inner" style="padding-left:85px">
+        @{
+            var activeClass = "active";
+        }
+        @foreach(var data in Model)
+        {
+            <div class="carousel-item @activeClass">
+               @* <div class="row">*@
+                <div class="d-flex justify-content-center" style="font-weight:bold;width:fit-content">
+                   @*<div class="col" style="font-weight:bold;width:fit-content">*@
+                        <p style="color:cornflowerblue;margin:0px">
+                            @data.Name
+                        </p>
+                        <p style="color:black;margin:0px">
+                            @data.Symbol
+                        </p>
+                        @if (data.PercentChange >= 0)
+                        {
+                            <p class="text-success" style="margin:0px">
+                                @data.Close
+                                <span>(@data.PercentChange %)</span>
+                            </p>
+                        }
+                        else
+                        {
+                            <p class="text-danger" style="margin:0px">
+                                @data.Close
+                                <span>(@data.PercentChange %)</span>
+                            </p>
+                        }
+                    </div>
+                </div>
+    @*</div>*@
+            activeClass = "";
+        }
+    </div>
+    <button class="carousel-control-prev justify-content-end"  type="button" data-bs-target="#mobile-stock-carousel" data-bs-slide="prev">
+        <span class="carousel-icon" aria-hidden="true"><i class="bi bi-chevron-left"></i></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next justify-content-start" type="button" data-bs-target="#mobile-stock-carousel" data-bs-slide="next">
+        <span class="carousel-icon" aria-hidden="true"><i class="bi bi-chevron-right"></i></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+

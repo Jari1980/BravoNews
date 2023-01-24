@@ -1,0 +1,296 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - BravoNews</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/BravoNews.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script type="text/javascript"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+
+
+    @* <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+
+    *@
+
+    <script>
+        function display_c() {
+            var refresh = 1000; // Refresh rate in milli seconds
+            mytime = setTimeout('display_ct()', refresh)
+        }
+
+        function display_ct() {
+            var x = new Date()
+            var days = ["Sunday", "Monday", "Tuesday", "Wednsday", "Thursday", "Friday", "Saturday"];
+            var day = days[x.getDay()];
+            var x1 = x.getMonth() + 1 + "/" + x.getDate() + "/" + x.getFullYear();
+            x1 = day + "," + x1 + " - " + x.getHours() + ":" + x.getMinutes() + ":" + x.getSeconds();
+            document.getElementById('ct').innerHTML = x1;
+            display_c();
+        }
+    </script>
+
+    @*script for searchbar*@
+    <script>
+        $(document).ready(function () {
+            var submitIcon = $('.searchbox-icon');
+            var inputBox = $('.searchbox-input');
+            var searchBox = $('.searchbox');
+            var isOpen = false;
+            submitIcon.click(function () {
+                if (isOpen == false) {
+                    searchBox.addClass('searchbox-open');
+                    inputBox.focus();
+                    isOpen = true;
+                } else {
+                    searchBox.removeClass('searchbox-open');
+                    inputBox.focusout();
+                    isOpen = false;
+                }
+            });
+            submitIcon.mouseup(function () {
+                return false;
+            });
+            searchBox.mouseup(function () {
+                return false;
+            });
+            $(document).mouseup(function () {
+                if (isOpen == true) {
+                    $('.searchbox-icon').css('display', 'block');
+                    submitIcon.click();
+                }
+            });
+        });
+        function buttonUp() {
+            var inputVal = $('.searchbox-input').val();
+            inputVal = $.trim(inputVal).length;
+            if (inputVal !== 0) {
+                $('.searchbox-icon').css('display', 'none');
+            } else {
+                $('.searchbox-input').val('');
+                $('.searchbox-icon').css('display', 'block');
+            }
+        }
+    </script>
+
+
+</head>
+
+<body onload=display_ct();>
+
+
+<header>
+       
+
+
+
+    <nav class="navbar navbar-expand-sm navbar-dark">
+
+
+        <div id="row1Header" class="navbar-collapse d-sm-inline-flex justify-content-between">
+            <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#n_bar" aria-controls="navbarNavAltMarkup" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-between" id="n_bar">
+                <ul class="navbar-nav flex-grow-1">
+                  
+                    <div class="collapse navbar-collapse justify-content-between" id="na_bar">
+                        <form class="searchbox" asp-controller="Home" asp-action="Search">
+                            <input type="search" placeholder="Search..." name="search" class="searchbox-input" onkeyup="buttonUp();" required>
+                            <input type="submit" class="searchbox-submit">
+                            <span class="searchbox-icon"><i class="fa fa-search" aria-hidden="true"></i></span>
+                        </form>
+                    </div>
+
+                    <partial name="_LoginPartial" />
+              </ul>
+            </div>
+        </div>
+    </nav>
+    <partial name="_CookieConsentPartial" />
+
+
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white box-shadow p-0">
+        <div id="row2Header" class="navbar-collapse d-sm-inline-flex justify-content-between">
+          
+
+            <div class="collapse navbar-collapse justify-content-between" id="na_bar">
+                <span id='ct' <i class="bi bi-clock"></i></span>
+            </div>
+            <img src="~/images/bravo-nlogo (1).png" height="95px" style="text-align:center; max-width:100%; height:auto; display:block" />  
+            <div class="collapse navbar-collapse justify-content-between" id="na_bar">
+                <span style="margin-top:20px">
+                    <ul>
+                        <div id="WeatherForecast">
+                            @await Component.InvokeAsync("MenuWeatherData", new { city = "Linköping"})
+                        </div>
+                    </ul>
+                </span>
+            </div>
+        </div>
+    </nav>
+
+
+    <nav class="navbar navbar-expand-sm navbar-dark ">
+        <div id="row3Header" class="navbar-collapse d-sm-inline-flex justify-content-between ">
+            <button class="navbar-toggler ms-auto " type="button" data-bs-toggle="collapse" data-bs-target="#nav_bar" aria-controls="navbarNavAltMarkup" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon "></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-between" id="nav_bar">
+                <ul class="navbar-nav flex-grow-1 ">
+
+                    @*<vc:menu-categories></vc:menu-categories>*@     @*Cant use view component for hamburger view*@
+                    <li>
+                        <a class="link" asp-area="" asp-controller="Home" asp-action="Index"><i class="bi bi-house"></i> Home</a>
+                    </li>
+                    <li>
+                        <a class="link" asp-area="" asp-controller="Home" asp-route-id=1 asp-action="News"><i class="bi bi-buildings"></i> Sweden</a>
+                    </li>
+                    <li>
+                        <a class="link" asp-area="" asp-controller="Home" asp-route-id=2 asp-action="News"><i class="bi bi-cloudy"></i> Weather</a>
+                    </li>
+                    <li>
+                        <a class="link" asp-area="" asp-controller="Home" asp-route-id=3 asp-action="News"><i class="bi bi-trophy"></i> Sports</a>
+                    </li>
+                    <li>
+                        <a class="link" asp-area="" asp-controller="Home" asp-route-id=4 asp-action="News"><i class="bi bi-globe"></i> World</a>
+                    </li>
+                    <li>
+                        <a class="link" asp-area="" asp-controller="Home" asp-route-id=5 asp-action="News"><i class="bi bi-geo-alt"></i> Local</a>
+                    </li>
+                    <li>
+                        <a class="link" asp-area="" asp-controller="Home" asp-route-id=6 asp-action="News"><i class="bi bi-currency-exchange"></i> Economy</a>
+                    </li>
+                    <li>
+                        <a class="link" asp-area="" asp-controller="Home" asp-route-id=7 asp-action="News"><i class="bi bi-plus-circle"></i> Health</a>
+                    </li>
+                    <li>
+                        <a class="link" asp-area="" asp-controller="Home" asp-action="ArchivedNews"><i class="bi bi-folder"></i> Archived News</a>
+                    </li>
+                    <li>
+                        <a class="link" asp-area="" asp-controller="Home" asp-action="ChuckNorris"><i class="bi bi-lightbulb"></i> Daily Wisdoms</a>
+                    </li>
+                  
+                </ul>
+            </div>
+
+
+        </div>
+    </nav>
+</header>
+
+
+
+
+
+
+    <div class="scrolling-text-wrapper">
+        @await Component.InvokeAsync("MenuElectricityData")
+    </div>
+
+
+
+
+    <div style="margin-bottom:60px">
+        <div>
+            <vc:menu-stock-data region="us"></vc:menu-stock-data>
+        </div>
+    </div>
+
+
+    
+    <div class="w3-container">
+        <div class="row"style="margin-left:50px;margin-right:50px">
+            
+            <main role="main" class="pb-3 col-9">
+              
+                @RenderBody()
+               
+            </main>
+            <div class="col-3" style="padding-top:72px">
+             
+                <vc:advertisement-right></vc:advertisement-right>
+            </div>
+        </div>
+    </div>
+
+  
+
+
+    <footer class="container-fluid text-center mb-1" style="background-color:#07528b;color:white; width:100%; margin-top:auto">
+
+
+        <!--  ROW START  -->
+        <div class="row">
+
+            <!--  COLUMN START  -->
+            <div class="col-md-4 my-2" style="padding-left:100px">
+
+                <img src="~/images/bravo-nlogo (1).png" height="105px" style="text-align:center; max-width:70%; height:auto; display:block;background-color:white;margin-top:50px" />
+
+            </div>
+            <!--  COLUMN END  -->
+            <!--  COLUMN START  -->
+            <div class="col-md-4 my-2">
+                <a asp-action="ContactForm" asp-controller="home" class="link-primary" style="color:white; font-size:larger"><h4>Contact Us</h4></a>
+               
+                <p class="text"> lexiconbroccoli@gmail.com</p>
+                <p>
+                    Phone: 020-67464500
+                </p>
+                <p>
+                    Adress: Västra Svedengatan 10,
+                </p>
+                <p>
+                    582 73 Linköping
+                </p>
+            </div>
+            <!--  COLUMN END  -->
+            <!--  COLUMN START  -->
+
+
+            <div class="col-md-4 my-2" style="padding-top:30px">
+
+
+                <a asp-action="" class="link-primary" style="color:white"> <h4> Follow Us </h4> </a> <br />
+
+                <div class="" >
+                    <a href="#" class="fa fa-facebook"></a>
+                    <a href="#" class="fa fa-twitter"></a>
+                    <a href="#" class="fa fa-youtube"></a>
+                    <a href="#" class="fa fa-instagram" style="background-color:orchid"></a>
+                </div>
+
+
+            </div>
+
+        </div>
+        <!-- CONTAINER END -->
+    </footer>
+    <footer>
+        
+        <div class="FooterContainer2" style="text-align:center">
+            <h5>&copy; @DateTime.Now.Year - BravoNews - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a></h5>
+        </div>
+    </footer>
+
+
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+
+
+</body>
+</html>
+

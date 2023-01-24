@@ -1,0 +1,59 @@
+﻿@model IEnumerable<BravoNews.Models.Category>
+
+
+<div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+    <ul class="navbar-nav flex-grow-1">
+        <li>
+            <a class="link" asp-area="" asp-controller="Home" asp-action="Index"> <i class="bi bi-house"></i> Home</a>
+        </li>
+       
+        
+        
+        @*                         <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="AdminPages">Admin Pages</a>
+        </li>*@
+     
+        @*@Model.ElementAt(0)*@
+        <li>
+            <a class="link" asp-area="" asp-controller="Home" asp-route-id="@Model.ElementAt(0).Id" asp-action="News"><i class="bi bi-buildings"></i> @Model.ElementAt(0).Name</a>
+        </li>
+        <li>
+            <a class="link" asp-area="" asp-controller="Home" asp-route-id="@Model.ElementAt(1).Id" asp-action="News"><i class="bi bi-cloudy"></i> @Model.ElementAt(1).Name</a>
+        </li>
+        <li>
+            <a class="link" asp-area="" asp-controller="Home" asp-route-id="@Model.ElementAt(2).Id" asp-action="News"><i class="bi bi-trophy"></i> @Model.ElementAt(2).Name</a>
+        </li>
+        <li>
+            <a class="link" asp-area="" asp-controller="Home" asp-route-id="@Model.ElementAt(3).Id" asp-action="News"><i class="bi bi-globe"></i> @Model.ElementAt(3).Name</a>
+        </li>
+        <li>
+            <a class="link" asp-area="" asp-controller="Home" asp-route-id="@Model.ElementAt(4).Id" asp-action="News"><i class="bi bi-geo-alt"></i> @Model.ElementAt(4).Name</a>
+        </li>
+        <li>
+            <a class="link" asp-area="" asp-controller="Home" asp-route-id="@Model.ElementAt(5).Id" asp-action="News"><i class="bi bi-currency-exchange"></i> @Model.ElementAt(5).Name</a>
+        </li>
+        <li>
+            <a class="link" asp-area="" asp-controller="Home" asp-route-id="@Model.ElementAt(6).Id" asp-action="News"><i class="bi bi-plus-circle"></i> @Model.ElementAt(6).Name</a>
+        </li>
+        @*<li>
+            <a class="link" asp-area="" asp-controller="Home" asp-route-id="@Model.ElementAt(7).Id" asp-action="News"><i class="bi bi-badge-ad"></i> @Model.ElementAt(7).Name</a>
+        </li>*@
+        <li>
+            <a class="link" asp-area="" asp-controller="Home" asp-action="ArchivedNews"><i class="bi bi-folder"></i> Archived News</a>
+        </li>
+         <li>
+            <a class="link" asp-area="" asp-controller="Home" asp-action="ChuckNorris"><i class="bi bi-lightbulb"></i> Daily Wisdoms</a>
+        </li>
+        
+        @*@foreach (var item in Model)*@
+           @* if (@item.Id != 15)
+            {*@
+               @* {
+                    <li>
+                        <a class="link" asp-area="" asp-controller="Home" asp-route-id="@item.Id" asp-action="News"><i class="bi bi-airplane"></i>@item.Name</a>
+                    </li>
+                }*@
+           @* }*@
+    </ul>
+</div>
+   

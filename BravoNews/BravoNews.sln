@@ -1,0 +1,66 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32630.192
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BravoNews", "BravoNews\BravoNews.csproj", "{F2B76855-0C18-4C9C-B334-2903229EB4CF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AddThingsToQueue", "AddThingsToQueue\AddThingsToQueue.csproj", "{B5F61873-4BD6-4036-9362-9A857C1C382F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SendEmail", "SendEmail\SendEmail.csproj", "{1FCAF7EC-A6BB-4AE3-9BC5-AC035D988E97}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlobResizeFunction", "BlobResizeFunction\BlobResizeFunction.csproj", "{B7D309D2-B8DD-4C68-B358-4C0F429489D8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TimerTrigger", "FunctionApp2\TimerTrigger.csproj", "{6822A701-A9CA-448E-A386-4F5E504B7ADD}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TimerNewsApp", "FunctionApp3\TimerNewsApp.csproj", "{57F6D3BC-F0E1-4490-98E9-5A774120952E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{583451A6-D0D8-45F9-A1CB-CA96C492BA81}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\BravoNews1\BravoNews\FunctionApp2\local.settings.json = ..\..\BravoNews1\BravoNews\FunctionApp2\local.settings.json
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SendEmailSocketLabs", "SendEmailSocketLabs\SendEmailSocketLabs.csproj", "{55A3DC12-96D0-4F8A-B83B-90A69F274D8E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F2B76855-0C18-4C9C-B334-2903229EB4CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2B76855-0C18-4C9C-B334-2903229EB4CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2B76855-0C18-4C9C-B334-2903229EB4CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2B76855-0C18-4C9C-B334-2903229EB4CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B5F61873-4BD6-4036-9362-9A857C1C382F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5F61873-4BD6-4036-9362-9A857C1C382F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5F61873-4BD6-4036-9362-9A857C1C382F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5F61873-4BD6-4036-9362-9A857C1C382F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1FCAF7EC-A6BB-4AE3-9BC5-AC035D988E97}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1FCAF7EC-A6BB-4AE3-9BC5-AC035D988E97}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1FCAF7EC-A6BB-4AE3-9BC5-AC035D988E97}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1FCAF7EC-A6BB-4AE3-9BC5-AC035D988E97}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7D309D2-B8DD-4C68-B358-4C0F429489D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7D309D2-B8DD-4C68-B358-4C0F429489D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7D309D2-B8DD-4C68-B358-4C0F429489D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7D309D2-B8DD-4C68-B358-4C0F429489D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6822A701-A9CA-448E-A386-4F5E504B7ADD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6822A701-A9CA-448E-A386-4F5E504B7ADD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6822A701-A9CA-448E-A386-4F5E504B7ADD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6822A701-A9CA-448E-A386-4F5E504B7ADD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57F6D3BC-F0E1-4490-98E9-5A774120952E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57F6D3BC-F0E1-4490-98E9-5A774120952E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57F6D3BC-F0E1-4490-98E9-5A774120952E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57F6D3BC-F0E1-4490-98E9-5A774120952E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{55A3DC12-96D0-4F8A-B83B-90A69F274D8E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55A3DC12-96D0-4F8A-B83B-90A69F274D8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55A3DC12-96D0-4F8A-B83B-90A69F274D8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55A3DC12-96D0-4F8A-B83B-90A69F274D8E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5B609236-BCF5-4F58-ACEB-7F364FC31543}
+	EndGlobalSection
+EndGlobal
