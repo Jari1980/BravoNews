@@ -1,0 +1,18 @@
+﻿@*@model IEnumerable<BravoNews.ViewComponents.AdvertisementRightViewComponent>*@
+@model BravoNews.Models.ViewModels.dbAdvertisementVM
+@*@model IEnumerable<BravoNews.Models.Category>*@
+    
+   
+
+     @foreach (var item in Model.dbAdvertisement){
+
+             <div class="col-md-12" style="border-bottom:solid white; float:right">
+                        <div class="card">
+            <a href="@item.LinkText">
+            <img src="@item.ImageLink" class="card-img-top" alt="...">
+            </a>
+             </div>
+            </div>
+     }
+
+    

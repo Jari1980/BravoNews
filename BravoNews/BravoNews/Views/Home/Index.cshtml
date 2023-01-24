@@ -1,0 +1,114 @@
+﻿@model BravoNews.Models.ViewModels.FirstPageVM
+
+
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+
+<h1 style="text-align:center">Popular News</h1>
+
+
+<div class="container">
+    <div class="row" style="border-bottom:double">
+        <div class="col-md-4">
+            @foreach (var item in Model.MostPopular)
+            {
+                <hr />
+                <div class="card" style=" border:none">
+                  
+                    <a href="home/articles?Id=@item.Id" style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;color:black"><h2>@item.Headline</h2></a>
+
+                    <a style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif"><p>@item.ContentSummary</p></a>
+                    <br />
+                    <p>@item.DateStamp.ToShortDateString()</p>
+                </div>
+
+            }
+        </div>
+        <div class="col-md-8 d-none d-lg-block" >
+            <img src="@Model.MostPopular.FirstOrDefault().ImageLink"  style="margin-top:27px;width:fit-content"/>
+
+        </div>
+
+
+    </div>
+</div>
+
+<br />
+
+@*style="padding:27px 0px 100px 50px"*@
+
+<h1 style="text-align:center">Latest News</h1>
+<div id="Latest-News-Carousel" class="carousel slide justify-content-center" data-bs-ride="carousel" data-bs-interval="2000" style="border-bottom:double;margin-top:15px">
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#Latest-News-Carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#Latest-News-Carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#Latest-News-Carousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        <button type="button" data-bs-target="#Latest-News-Carousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+        <button type="button" data-bs-target="#Latest-News-Carousel" data-bs-slide-to="4" aria-label="Slide 5"></button>
+    </div>
+    <div class="carousel-inner justify-content-center">
+        @foreach (var item in Model.LatestNews)
+        {
+            <div class="carousel-item @(item == Model.LatestNews.First() ? "active":"")">
+                <div class="row justify-content-center">
+                    <div class="col-md-10 justify-content-center">
+                        <div class="card" style="border:none" >
+                            @*solid  #0077b6  ; padding:5px;">*@
+                            <img src="@item.ImageLink" class="card-img-top img-fluid" >
+                            <br />
+                            <a href="home/articles?Id=@item.Id" style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;color:black"><h2>@item.Headline</h2></a>
+
+                            <a style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif"><p>@item.ContentSummary</p></a>
+                            <br />
+                            <p>@item.DateStamp.ToShortDateString()</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        }
+    </div>
+
+    <button class="carousel-control-prev justify-content-start" style="margin-left:0px" type="button" data-bs-target="#Latest-News-Carousel" data-bs-slide="prev">
+        <span class="carousel-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next justify-content-end" type="button" data-bs-target="#Latest-News-Carousel" data-bs-slide="next">
+        <span class="carousel-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+
+<br />
+
+<h1 style="text-align:center">Editors Choice</h1>
+<div class="row" style="margin-top:30px">
+    @foreach (var item in Model.EditorsChoice)
+    {
+        <div class="col-md-4">
+            <div class="card" style="border:none">
+                @*solid  #0077b6  ; padding:5px;">*@
+                <img src="@item.ImageLink" class="card-img-top">
+                <br />
+                <a href="home/articles?Id=@item.Id" style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;color:black"><h2>@item.Headline</h2></a>
+
+                <a style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif"><p>@item.ContentSummary</p></a>
+                <br />
+
+                <p>@item.DateStamp.ToShortDateString()</p>
+
+            </div>
+
+
+
+        </div>
+
+    }
+</div>
+
+<br />
+<br />

@@ -1,0 +1,31 @@
+﻿@model IEnumerable<BravoNews.Models.Article>
+
+@{
+    ViewData["Title"] = "Search";
+}
+
+
+<h1 style="margin:0px 0px 0px 60px">Search Result</h1>
+
+
+<div class="container" style="width:100%;margin-right:70px;margin-top:10px">
+
+    <div class="row">
+    @foreach(var item in Model)
+{
+  
+            <div class="col-md-4" style="padding-top:23px">
+        <div class="card" style="height:100%">
+              <div class="card-body">
+              <a href="/home/articles?Id=@item.Id" style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif"><img src="@item.ImageLink" style="height: 250px" class="card-img-top"></a>
+                        <a href="/home/articles?Id=@item.Id" style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;color:black"><h5 class="card-title" style="color:black">@item.FileName</h5></a>
+            <a href="/home/articles?Id=@item.Id" style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;color:black"><p class="card-text" style="color:black">@item.Headline</p></a>
+            <p>@item.DateStamp.ToShortDateString()</p>
+          </div>
+        </div>
+      </div>
+
+    
+ }
+</div>
+</div>

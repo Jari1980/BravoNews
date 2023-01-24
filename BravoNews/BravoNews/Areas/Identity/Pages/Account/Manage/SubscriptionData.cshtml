@@ -1,0 +1,36 @@
+﻿@page
+@using BravoNews.Data
+@inject ApplicationDbContext _db;
+@inject UserManager<User> _userManager
+
+@model SubscriptionData
+
+@{
+    ViewData["Title"] = "Subscription data";
+    ViewData["ActivePage"] = ManageNavPages.SubscriptionData;
+}
+
+<h3>@ViewData["Title"]</h3>
+@{
+    var user = await _userManager.GetUserAsync(User);
+    //var userEmail = user.Email
+    var expDate = DateTime.Now;
+    var subDate = DateTime.Now;
+    var userFirstName = _db.Users.Where(x => x.Email == user.Email).FirstOrDefault().FirstName;
+    var userLastName = _db.Users.Where(x => x.Email == user.Email).FirstOrDefault().LastName;
+    @if (_db.Users.Where(x => x.Email == User.Identity.Name).FirstOrDefault().IsPremium)
+    {
+        expDate = _db.Subscriptions.Where(x => x.User == user).OrderByDescending(x => x.Expires).FirstOrDefault().Expires;
+        subDate = _db.Subscriptions.Where(x => x.User == user).OrderByDescending(x => x.Created).FirstOrDefault().Created;
+    }
+}
+
+<strong><br>Hello @userFirstName @userLastName!<br /><br /></strong>
+@if (_db.Users.Where(x => x.Email == User.Identity.Name).FirstOrDefault().IsPremium)
+{
+    <strong>Your subscription for this awesome site was created on: @subDate <br /></strong>
+    <strong>Your subscription will last until: @expDate</strong>
+}
+else{
+    <strong>Sorry you dont have a active subscription.</strong>
+}

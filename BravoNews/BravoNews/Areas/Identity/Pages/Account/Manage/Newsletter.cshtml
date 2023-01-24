@@ -1,0 +1,32 @@
+﻿@page
+@using BravoNews.Data
+@inject ApplicationDbContext _db;
+@model Newsletter
+@{
+    ViewData["Title"] = "Newsletter";
+    ViewData["ActivePage"] = ManageNavPages.Newsletter;
+}
+
+
+<div>
+    <h2>Personal newsletter</h2><br />
+    <strong>This is a free personalized newsletter.</strong><br />
+    <strong>Personalized newsletter is based on your article likes or the most popular articles.<br /></strong><br />
+    @if (!_db.Users.Where(x => x.Email == User.Identity.Name).FirstOrDefault().PersonalizedNewsletter)
+    {
+     <form id="Newsletter" method="post">
+            <input type="hidden" asp-for="SubscribeNews" value="true" />
+            <button class="btn btn-primary" type="submit"><i class="bi bi-envelope-open"></i> Subscribe for personal newsletter</button>
+    </form>
+    }
+    else{
+    <form id="unsubscribe-newsletter" asp-page="Newsletter" method="post">
+        <input type="hidden" asp-for="SubscribeNews" value="false" />
+            <button class="btn btn-primary" value="false" name="Newsletter" type="submit"><i class="bi bi-envelope-fill"></i> UnSubscribe personal newsletter</button>
+    </form>
+    }
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

@@ -1,0 +1,13 @@
+﻿@model BravoNews.Models.Electricity
+
+
+
+<div id="scrolling-text">
+    @foreach (var todaySpotPrice in Model.TodaysSpotPrices)
+    {
+        @foreach (var spotData in todaySpotPrice.SpotData)
+        {
+            <span>@spotData.AreaName - @spotData.DateAndTime - @spotData.Price</span>
+        }
+    }
+</div>

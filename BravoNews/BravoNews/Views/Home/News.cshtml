@@ -1,0 +1,40 @@
+﻿@model IEnumerable<BravoNews.Models.Article>
+@using BravoNews.Data
+@using Microsoft.AspNetCore.Identity
+@inject ApplicationDbContext _db;
+@inject UserManager<User> _userManager;
+
+
+<div class="container" style="float:left ;width:100%">
+
+   @* @if(Model != null)
+    {
+       _db.Categories.Where(c =>c.Name)
+    }
+*@
+    @if (User.Identity.Name == null)
+    {
+        <h2><strong>You need to create an account in order to access our articles.</strong></h2>
+    }
+    else if (_db.Users.Where(x => x.Email == User.Identity.Name).FirstOrDefault().IsPremium || User.IsInRole("Administrator") || User.IsInRole("Editor") || User.IsInRole("Journalist"))
+    {
+        <div class="row g-3">
+            @foreach (var item in Model)
+            {
+                <div class="col-md-4" style="padding-top:23px;margin-top:64px">
+                    <div class="card h-100">
+                    <img src="@item.ImageLink" class="card-img-top" alt="......" />
+                        <div class="card-body">
+                            <a asp-controller="Home" asp-action="Articles" asp-route-id="@item.Id" class="underline-on-hover" style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color:black;"><h3>@item.Headline</h3></a>
+                            <p style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">@item.ContentSummary</p>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+    else
+    {
+       <h2><strong>You need to subscribe in order to access our articles.</strong></h2>
+    }
+</div>

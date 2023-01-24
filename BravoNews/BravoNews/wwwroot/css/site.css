@@ -1,0 +1,493 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:400,900);
+@import url(https://fonts.googleapis.com/icon?family=Material+Icons);
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap");
+
+
+.scrolling-text-wrapper {
+    max-width: 100vw;
+    overflow: hidden;
+}
+
+#scrolling-text {
+    font-weight: bold;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 100%;
+    animation: scroll-left 30s linear infinite;
+}
+
+@keyframes scroll-left {
+    from {
+        transform: translateX(100%);
+    }
+
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+.heading {
+     color: #04477e;
+}
+
+.link {
+    
+    border-right: 2px solid black;
+    font-weight: bold;
+    display: block;
+    padding: 0.5rem;
+    text-decoration: none;
+    color: white;
+}
+
+#row1Header {
+    background-color: #07528b;
+    padding: 0px;
+    margin: 0px;
+    font-size: 14px;
+    
+}
+
+#row2Header {
+    background-color: #d8e8e7;
+}
+
+#row3Header {
+ 
+    background-color: #07528b;
+    
+}
+
+.navbar {
+ 
+        padding:0px;
+        margin:0px;
+}
+
+
+
+
+.btn-primary {
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    line-height: 60px;
+    }
+
+/*datetime & day*/
+#ct {
+    font-weight: bold;
+   color:darkblue;
+    margin-left:25px;
+}
+
+
+.nav-link {
+    font-weight: bold;
+}
+
+
+a{
+    text-decoration: none;
+    color: #0077cc;
+}
+
+/*for showing link when hover*/
+div > a:hover{
+    text-decoration:underline
+}
+ 
+
+
+html {
+    font-size: 14px;
+    position: relative;
+   
+}
+
+/*Selectors*/
+$font-stack: Lato, sans-serif;
+$bg-color: #333;
+$red: #F65C54;
+$green: #43B39B;
+$blue: #69AAE0;
+
+body {
+    margin-bottom: 60px;
+    background-color: $bg-color;
+    color: white;
+    font-family: $font-stack;
+    /*background-image: url('../images/news img.jpg');*/
+    background-repeat: no-repeat;
+    background-size: cover;
+    /*width:1024px;*/
+}
+hr {
+    margin: 2rem 0;
+    opacity: 0.4;
+}
+
+Buttons:
+.btn {
+    background-color: $green;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    display: inline-block;
+    font-family: $font-stack;
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 1rem 2rem;
+    margin-right: 5rem;
+    opacity: 0.85;
+}
+    
+{
+    background-color: $red;
+}
+
+--yes {
+     /*Yes is the default button style*/
+}
+
+&--yes,
+&--no {
+    border-radius: 60%;
+    padding: 1.6rem;
+}
+
+&--right {
+    float: right;
+    margin-right: 0;
+}
+
+&:hover,
+&:focus {
+    opacity: 1;
+    outline: none;
+}
+
+}
+
+label.btn {
+    opacity: 0.3;
+}
+
+/* Slightly highlight on hover / focus:*/
+label.btn:hover,
+input:focus + label.btn {
+    opacity: 0.7;
+}
+
+ /*On focus (keyboard navigation), show
+the expected outline:*/
+input:focus + label.btn {
+    outline: thin dotted;
+}
+
+ /*Highlight fully when checked:s*/
+input:checked + label.btn {
+    opacity: 1;
+}
+
+.is-hidden {
+    opacity: 0;
+    position: absolute;
+}
+
+/*Container fluid*/
+.container-fluid {
+    background-color: #1b6535;
+    color: white;
+}
+
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+
+/* Cookie-style */
+#cookieConsentdiv {
+    z-index: 1000;
+    position: fixed;
+    width: 400px;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px 30px 20px 30px;
+    font-family: 'Century Gothic', sans-serif;
+    box-shadow: 0px 3px 10px 5px rgba(0, 0, 0, 0.4);
+    text-align: center;
+    border-radius: 30px 30px 0 0;
+}
+
+    #cookieConsentdiv button {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        border: none;
+        background-color: green;
+        padding: 10px 50px;
+        margin-top: -5px;
+        color: white;
+        transition: all ease 0.5s;
+    }
+
+        #cookieConsentdiv button:hover {
+            background-color: darkgreen;
+        }
+
+    #cookieConsentdiv h3 {
+        font-size: 22px;
+    }
+
+    #cookieConsentdiv p {
+        font-size: 13px;
+    }
+
+    #cookieConsentdiv a {
+        color: gray;
+        text-decoration: underline;
+    }
+
+
+/* buttons of create articles ============*/
+#btn2:hover {
+
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+#btn2 {
+    width: 100px;
+}
+#btn1 {
+    width: 100px;
+    
+}
+#border {
+    border: 3px solid black;
+    padding: 20px;
+    box-sizing: border-box;
+}
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 5px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+}
+
+/*btn form registration*/
+
+
+
+#login {
+    text-align: center;
+    color: #07528b;
+}
+    #login:hover {
+        background-color: #d8e8e7;
+    }
+
+.align-middle {
+    width: 100%;
+    padding: 5px;
+    margin-left: 460px;
+    display: inline-block;
+    border: none;
+    background: #07528b;
+    color:white;
+}
+
+#forgot-psw {
+    text-align: center;
+}
+    #forgot-psw:hover {
+        background-color: lightgreen;
+    }
+.middle {
+    /*color:rebeccapurple;*/
+
+    padding: 15px;
+    margin-left: 350px;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+    width: 50%;
+}
+ 
+/*stock data carousel code starts*/
+#carousel-sd{
+    padding-left: 50px;
+}
+
+#desktop-stock-carousel {
+    background-color: white;
+    padding-left: 120px;
+    padding-right: 120px;
+    padding-top: 20px;
+}
+
+.carousel-icon {
+    background-color: rgba(0, 0, 255, 0.2);
+    font-size: 2rem;
+    font-weight: bolder;
+    color: blue;
+    margin-top: 15px;
+}
+
+
+/*stock data carousel code ends*/
+
+.fa {
+    padding: 10px;
+    font-size: 30px;
+    width: 10%;
+    text-align: center;
+    text-decoration: none;
+    margin: 2px 2px;
+    display: flex;
+}
+.fa-facebook {
+    background: #3B5998;
+    color: white;
+}
+.fa-youtube {
+    background: #bb0000;
+    color: white;
+}
+
+.fa-instagram {
+    background: #125688;
+    color: white;
+}
+.fa-twitter {
+    background: #55ACEE;
+    color: white;
+    
+}
+
+
+/*searchbar2 code starts*/
+
+.searchbox {
+    position: relative;
+    min-width: 0px;
+    width: 70px;
+    height: 50px;
+    float:right;
+    overflow: hidden;
+    -webkit-transition: width 0.3s;
+    -moz-transition: width 0.3s;
+    /*-ms-transition: width 0.3s;*/
+    -o-transition: width 0.3s;
+    transition: width 0.3s;
+    margin-left:5px;
+    margin-bottom:2px;
+}
+
+.searchbox-input {
+    top: 0;
+    right: 0;
+    border: 0;
+    outline: 0;
+    background: #EDEDED;
+    width: 80%;
+    height: 50px;
+    margin: 0;
+    /* padding: 0px 16px 0px 20px;*/
+    font-size: 18px;
+    color: darkblue;
+    margin-left: 40px;
+    text-align: center;
+    margin-top: 2px;
+}
+
+
+    .searchbox-input::-webkit-input-placeholder {
+        color: darkblue;
+    }
+
+    .searchbox-input:-moz-placeholder {
+        color: darkblue;
+    }
+
+    .searchbox-input::-moz-placeholder {
+        color: darkblue;
+    }
+
+    .searchbox-input:-ms-input-placeholder {
+        color: darkblue;
+    }
+
+.searchbox-icon,
+.searchbox-submit {
+    width: 75px;
+    height: 50px;
+    display: block;
+    position:absolute;
+    top: 0;
+    font-family: verdana;
+    font-size: 15px;
+    left: 0;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    outline: 0;
+    line-height: 50px;
+    text-align: center;
+    cursor: pointer;
+    color: darkblue;
+    background: White;
+    margin:2px 2px 2px 4px;
+    
+}
+
+.searchbox-icon {
+    font-size: 32px;
+    text-align: center;
+    padding-right:35px;
+   
+}
+
+.searchbox-open {
+    width: 350px;
+}
+
+.byline {
+    position: absolute;
+    top: 150px;
+    left: 30%;
+    text-align: center;
+    font-size: 18px;
+}
+
+    .byline a {
+        text-decoration: none;
+        color: #d74b4b;
+    }
+    
+/*searchbar2 code ends*/
+
+
+/*carousel for latest news*/
+.carousel-indicators [data-bs-target] {
+    position: relative;
+    width: 50px;
+    height: 6px;
+    border: none;
+    background-color:darkblue;
+    border-radius: 24px;
+}

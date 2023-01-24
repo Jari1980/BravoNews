@@ -1,0 +1,26 @@
+﻿@model IEnumerable<BravoNews.Models.Article>
+
+
+
+<div class="container" style="width:70%; float:left" >
+@foreach(var item in @Model){
+        <h2>@item.Headline</h2>
+      <p>@item.DateStamp.ToShortDateString()</p>
+        <img src="@item.ImageLink" />
+       <h4>@item.ContentSummary</h4>
+       <p>@item.Content</p>
+    <p>View count:@item.Views</p>
+    <p>Likes: @item.Likes</p>
+    
+}    
+
+
+
+<br />
+<br />
+<br />
+<span>afafs</span>
+
+
+</div>
+

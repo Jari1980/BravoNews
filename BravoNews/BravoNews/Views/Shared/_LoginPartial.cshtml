@@ -1,0 +1,82 @@
+﻿@using BravoNews.Data
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<User> SignInManager
+@inject UserManager<User> UserManager
+@inject ApplicationDbContext _db;
+
+
+<ul class="navbar-nav">
+    @if (SignInManager.IsSignedIn(User))
+    {
+        @if (!UserManager.GetUserAsync(User).Result.IsPremium)
+        {
+            <li>
+                <a class="link" asp-area="" asp-controller="Home" asp-action="Subscribe"><i class="bi bi-gem"></i>Subscribe</a>
+            </li>
+        }
+
+        @if ((User.IsInRole("Administrator")) || (User.IsInRole("Editor")))
+        {
+            <li>
+                <a class="link" asp-area="" asp-controller="Home" asp-action="EditArticle">EditArticle</a>
+            </li>
+        }
+
+ @if (User.IsInRole("Journalist") || User.IsInRole("Administrator"))
+        {
+            <li>
+                <a class="link" asp-area="" asp-controller="Home" asp-action="AddArticle">AddArticle</a>
+            </li>
+        }
+        @if (User.IsInRole("Administrator"))
+        {
+            <li>
+                <a class="link" asp-area="" asp-controller="Home" asp-action="AdminPages">Administration</a>
+            </li>
+        }
+        <li>
+            <a class="link" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">My Account</a>
+        </li>
+        <li>
+
+            <form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                <button type="submit" class="link btn btn-link text-white">Logout</button>
+            </form>
+
+        </li>
+    }
+    else
+    {
+
+        @if (User.IsInRole("Administrator"))
+        {
+            <li class=”nav-item”>
+                <a class="link" asp-area="" asp-controller="Home" asp-action="AdminPages">Administration</a>
+            </li>
+        }
+
+        @if (User.IsInRole("Editor") || User.IsInRole("Administrator"))
+        {
+            <li class=”nav-item”>
+                <a class="link" asp-area="" asp-controller="Home" asp-action="AddArticle">Editor</a>
+            </li>
+        }
+
+        @if (User.IsInRole("Journalist") || User.IsInRole("Administrator"))
+        {
+            <li class=”nav-item”>
+                <a class="link" asp-area="" asp-controller="Home" asp-action="">Journalist</a>
+            </li>
+        }
+
+
+        <li class="nav-item">
+            <a class="link" asp-area="Identity" asp-page="/Account/Register">Register</a>
+        </li>
+        <li class="nav-item">
+            <a class="link" asp-area="Identity" asp-page="/Account/Login">Login</a>
+        </li>
+
+
+    }
+</ul>

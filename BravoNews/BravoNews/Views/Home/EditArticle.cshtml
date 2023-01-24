@@ -1,0 +1,304 @@
+﻿@model IEnumerable<BravoNews.Models.Article>
+
+
+
+
+<div class="container">
+    <div class="col-12">
+
+@{
+    ViewData["Title"] = "EditArticle";
+}
+
+@{
+
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+<h1>EditArticle</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<div class="table-responsive-xs" style="overflow:scroll;">
+<table class="d-sm-table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DateStamp) /<br />
+                @Html.DisplayNameFor(model => model.DateStampEditorsChoice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Headline)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ContentSummary)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Views)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Likes)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+
+    
+    <tbody>
+        <tr>
+            <td><h2>Sweden:</h2></td>
+
+        </tr>
+        @foreach (var item in Model)
+        {
+            @if (item.CategoryId == 1)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DateStamp) <br>
+                        @Html.DisplayFor(modelItem => item.DateStampEditorsChoice)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Headline)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ContentSummary)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Views)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Likes)
+                    </td>
+                    <td>
+                        <a href="Edit?Id=@item.Id" class="btn btn-primary" type="button" Id="Edit"  style="width:100px; border:solid">Edit</a> <br>
+                        <a href="EditorsChoice?Id=@item.Id" class="btn btn-primary" type="button" style="width:100px; border:solid">Editors Choice</a> <br>
+                        <a href="Delete?Id=@item.Id" class="btn btn-primary" type="button" style="width:100px; border:solid">Delete</a> 
+                    </td>
+                </tr>
+            }
+        }
+        <tr><td><h2>Weather:</h2></td></tr>
+        @foreach (var item in Model)
+        {
+            @if (item.CategoryId == 2)
+            {
+
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DateStamp) <br>
+                        @Html.DisplayFor(modelItem => item.DateStampEditorsChoice)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Headline)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ContentSummary)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Views)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Likes)
+                    </td>
+                    <td>
+                        <a href="Edit?Id=@item.Id" class="btn btn-primary" type="button" Id="Edit"  style="width:100px; border:solid">Edit</a> <br>
+                        <a href="EditorsChoice?Id=@item.Id" class="btn btn-primary" type="button" style="width:100px; border:solid">Editors Choice</a> <br>
+                        <a href="Delete?Id=@item.Id" class="btn btn-primary" type="button" style="width:100px; border:solid">Delete</a> 
+                    </td>
+                </tr>
+            }
+        }
+        <tr><td><h2>Sports:</h2></td></tr>
+        @foreach (var item in Model)
+        {
+            @if (item.CategoryId == 3)
+            {
+
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DateStamp) <br>
+                        @Html.DisplayFor(modelItem => item.DateStampEditorsChoice)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Headline)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ContentSummary)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Views)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Likes)
+                    </td>
+                    <td>
+                        <a href="Edit?Id=@item.Id" class="btn btn-primary" type="button" Id="Edit"  style="width:100px; border:solid">Edit</a> <br>
+                        <a href="EditorsChoice?Id=@item.Id" class="btn btn-primary" type="button" style="width:100px; border:solid">Editors Choice</a> <br>
+                        <a href="Delete?Id=@item.Id" class="btn btn-primary" type="button" style="width:100px; border:solid">Delete</a> 
+                    </td>
+                </tr>
+            }
+        }
+        <tr><td><h2>World:</h2></td></tr>
+        @foreach (var item in Model)
+        {
+            @if (item.CategoryId == 4)
+            {
+
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DateStamp) <br>
+                        @Html.DisplayFor(modelItem => item.DateStampEditorsChoice)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Headline)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ContentSummary)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Views)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Likes)
+                    </td>
+                    <td>
+                        <a href="Edit?Id=@item.Id" class="btn btn-primary" type="button" Id="Edit"  style="width:100px; border:solid">Edit</a> <br>
+                        <a href="EditorsChoice?Id=@item.Id" class="btn btn-primary" type="button" style="width:100px; border:solid">Editors Choice</a> <br>
+                        <a href="Delete?Id=@item.Id" class="btn btn-primary" type="button" style="width:100px; border:solid">Delete</a> 
+                    </td>
+                </tr>
+            }
+        }
+        <tr><td><h2>Local:</h2></td></tr>
+        @foreach (var item in Model)
+        {
+            @if (item.CategoryId == 5)
+            {
+
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DateStamp) <br>
+                        @Html.DisplayFor(modelItem => item.DateStampEditorsChoice)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Headline)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ContentSummary)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Views)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Likes)
+                    </td>
+                    <td>
+                        <a href="Edit?Id=@item.Id" class="btn btn-primary" type="button" Id="Edit"  style="width:100px; border:solid">Edit</a> <br>
+                        <a href="EditorsChoice?Id=@item.Id" class="btn btn-primary" type="button" style="width:100px; border:solid">Editors Choice</a> <br>
+                        <a href="Delete?Id=@item.Id" class="btn btn-primary" type="button" style="width:100px; border:solid">Delete</a> 
+                    </td>
+                </tr>
+            }
+        }
+        <tr><td><h2>Economy:</h2></td></tr>
+        @foreach (var item in Model)
+        {
+            @if (item.CategoryId == 6)
+            {
+
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DateStamp) <br>
+                        @Html.DisplayFor(modelItem => item.DateStampEditorsChoice)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Headline)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ContentSummary)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Views)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Likes)
+                    </td>
+                    <td>
+                        <a href="Edit?Id=@item.Id" class="btn btn-primary" type="button" Id="Edit"  style="width:100px; border:solid">Edit</a> <br>
+                        <a href="EditorsChoice?Id=@item.Id" class="btn btn-primary" type="button" style="width:100px; border:solid">Editors Choice</a> <br>
+                        <a href="Delete?Id=@item.Id" class="btn btn-primary" type="button" style="width:100px; border:solid">Delete</a> 
+                    </td>
+                </tr>
+            }
+        }
+        <tr><td><h2>Health:</h2></td></tr>
+        @foreach (var item in Model)
+        {
+            @if (item.CategoryId == 7)
+            {
+                var time = item.DateStampEditorsChoice;
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DateStamp) <br>
+                        @*@Html.DisplayFor(modelItem => item.DateStampEditorsChoice)*@
+                        <span id="EditorsChoice">@time</span>
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Headline)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ContentSummary)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Views)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Likes)
+                    </td>
+                    <td style="width:fit-content">
+                        <a href="Edit?Id=@item.Id" class="btn btn-primary" type="button" Id="Edit"  style="width:100px; border:solid">Edit</a> <br>
+                        <a href="EditorsChoice?Id=@item.Id" class="btn btn-primary" type="button" style="width:100px; border:solid">Editors Choice</a> <br>
+                        <a href="Delete?Id=@item.Id" class="btn btn-primary" type="button" style="width:100px; border:solid">Delete</a> 
+                    </td>
+                </tr>
+            }
+        }
+        <tr><td><h2>Advertisement:</h2></td></tr>
+        @foreach (var item in Model)
+        {
+            @if (item.CategoryId == 15)
+            {
+
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DateStamp)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Headline)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ContentSummary)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Views)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Likes)
+                    </td>
+                    <td>
+                        <a href="Edit?Id=@item.Id" class="btn btn-primary" type="button" Id="Edit"  style="width:100px; border:solid">Edit</a> <br>
+                        <a href="Delete?Id=@item.Id" class="btn btn-primary" type="button" style="width:100px; border:solid">Delete</a> 
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+</div>
+</div>
+</div>
+

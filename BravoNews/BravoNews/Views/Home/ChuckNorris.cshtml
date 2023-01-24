@@ -1,0 +1,21 @@
+﻿
+<div class="container" style="margin-top:60px">
+    <div class="col-9" style="text-align:center; padding-left:50px">
+<h1>Wisdom of the day <br /></h1>
+<br />
+<h3>@ViewBag.Message</h3>
+
+<img class="img-fluid" style="max-height:300px; max-width:100%;" src="https://imagecdn.handitv.com/ZGS14-1634846784-325-quiz_question_image_-chuckquiz.jpg" />
+<br />
+<br />
+<input type="submit" id="RefreshPage" class="btn btn-primary" value="Get another wisdom" name="Command"/>
+</div>
+</div>
+
+<script>
+    $(document).ready(function () {
+       $('#RefreshPage').click(function () {
+           window.location.reload();
+       });
+   });
+</script>

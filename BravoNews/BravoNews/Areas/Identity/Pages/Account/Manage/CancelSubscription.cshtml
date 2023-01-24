@@ -1,0 +1,24 @@
+﻿@page
+@using BravoNews.Data
+@inject ApplicationDbContext _db;
+@model CancelSubscriptionModel
+
+
+<div>
+    <h2>Cancel premium Subscription <br /></h2>
+    <strong>@_db.Users.Where(x => x.Email == User.Identity.Name).FirstOrDefault().FirstName.ToString() </strong>
+    <strong>@_db.Users.Where(y => y.Email == User.Identity.Name).FirstOrDefault().LastName.ToString(), </strong>
+    <strong>Press button below in order to cancel your subscription.<br /></strong>
+    <br />
+    @if (_db.Users.Where(x => x.Email == User.Identity.Name).FirstOrDefault().IsPremium)
+    {
+        <form id="CancelSubscription" method="post">
+            <input type="hidden" asp-for="CancelSubscriptionBool" value="true" />
+            <button class="btn btn-primary" type="submit"><i class="bi bi-envelope-open"></i>Cancel your subscription</button>
+    </form>
+    }
+    else{
+        <strong>You dont have a active subscription</strong>
+    }
+
+</div>

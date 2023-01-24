@@ -1,0 +1,74 @@
+﻿@model IEnumerable<BravoNews.Models.Article>
+@using BravoNews.Data
+@inject ApplicationDbContext _db;
+
+@{
+    var count = Model.FirstOrDefault().Likes;
+}
+
+
+<div class="container">
+    <div class="col-9">
+    @if (User.Identity.Name == null)
+    {
+        <h2><strong>You need to create an account in order to access our articles.</strong></h2>
+    }
+
+    else if (_db.Users.Where(x => x.Email == User.Identity.Name).FirstOrDefault().IsPremium || User.IsInRole("Administrator") || User.IsInRole("Editor") || User.IsInRole("Journalist"))
+    {
+        @foreach (var item in @Model)
+        {
+            <h2 style="font-family:sans-serif; font-weight:800">@item.Headline</h2>
+            <p>Published @item.DateStamp.ToShortDateString()</p>
+
+            <img class="img-fluid" style="max-width:100%; max-height:400px;" src="@item.ImageLink" /><br /><br />
+            <h4 style="font-family:sans-serif; font-weight:600">@item.ContentSummary</h4>
+            <p style="font-family:Optima, sans-serif">@item.Content</p>
+           
+            <span>Likes: </span>
+            <span id="LikeCount">@count</span>
+            <br />
+            <button class="bi bi-hand-thumbs-up" onclick="Like(@Model.FirstOrDefault().Id.ToString())"></button>
+            <button class="bi bi-hand-thumbs-down" onclick="NoLike(@Model.FirstOrDefault().Id.ToString())"></button>  <br /> <br />
+            <p>Article view count: @item.Views</p>
+        }
+    }
+    else
+    {
+       
+        <h2><strong>You need to subscribe in order to access our articles.</strong></h2>
+    }
+
+    </div>
+
+</div>
+
+
+
+
+<script>
+    function Like(Id) {
+        $.ajax({
+            type: "post",
+            url: "/home/likearticle",
+            dataType: "json",
+            cache: false,
+            data: { Id: Id },
+            success: function(data) {
+                $('#LikeCount').html(data.value);
+            }
+        })
+    }
+    function NoLike(Id) {
+        $.ajax({
+            type: "post",
+            url: "/home/nolikearticle",
+            dataType: "json",
+            cache: false,
+            data: { Id: Id },
+            success: function(data) {
+                $('#LikeCount').html(data.value);
+            }
+        })
+    }
+</script>
